@@ -49,12 +49,12 @@ C                    DOUBLE PRECISION Y
 C
 C     A <--> The first parameter of the beta density.
 C            Input range: (0, +infinity).
-C            Search range: [1D-100,1D100]
+C            Search range: [1D-300,1D300]
 C                    DOUBLE PRECISION A
 C
 C     B <--> The second parameter of the beta density.
 C            Input range: (0, +infinity).
-C            Search range: [1D-100,1D100]
+C            Search range: [1D-300,1D300]
 C                    DOUBLE PRECISION B
 C
 C     STATUS <-- 0 if calculation completed correctly
@@ -105,7 +105,7 @@ C     .. Parameters ..
       DOUBLE PRECISION atol
       PARAMETER (atol=1.0D-50)
       DOUBLE PRECISION zero,inf
-      PARAMETER (zero=1.0D-100,inf=1.0D100)
+      PARAMETER (zero=1.0D-300,inf=1.0D300)
       DOUBLE PRECISION one
       PARAMETER (one=1.0D0)
 C     ..

@@ -47,12 +47,12 @@ C
 C     S <--> The upper limit of cumulation of the binomial distribution.
 C            There are F or fewer failures before the XNth success.
 C            Input range: [0, +infinity).
-C            Search range: [0, 1E100]
+C            Search range: [0, 1E300]
 C                    DOUBLE PRECISION S
 C
 C     XN  <--> The number of successes.
 C              Input range: [0, +infinity).
-C              Search range: [0, 1E100]
+C              Search range: [0, 1E300]
 C                    DOUBLE PRECISION XN
 C
 C     PR  <--> The probability of success in each binomial trial.
@@ -106,7 +106,7 @@ C     .. Parameters ..
       DOUBLE PRECISION atol
       PARAMETER (atol=1.0D-50)
       DOUBLE PRECISION inf
-      PARAMETER (inf=1.0D100)
+      PARAMETER (inf=1.0D300)
       DOUBLE PRECISION one
       PARAMETER (one=1.0D0)
 C     ..

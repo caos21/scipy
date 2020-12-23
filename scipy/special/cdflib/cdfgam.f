@@ -42,13 +42,13 @@ C                    DOUBLE PRECISION X
 C
 C     SHAPE <--> The shape parameter of the gamma density.
 C                Input range: (0, +infinity).
-C                Search range: [1E-100,1E100]
+C                Search range: [1E-300,1E300]
 C                  DOUBLE PRECISION SHAPE
 C
 C
 C     SCALE <--> The scale parameter of the gamma density.
 C                Input range: (0, +infinity).
-C                Search range: (1E-100,1E100]
+C                Search range: (1E-300,1E300]
 C                   DOUBLE PRECISION SCALE
 C
 C     STATUS <-- 0 if calculation completed correctly
@@ -103,7 +103,7 @@ C     .. Parameters ..
       DOUBLE PRECISION atol
       PARAMETER (atol=1.0D-50)
       DOUBLE PRECISION zero,inf
-      PARAMETER (zero=1.0D-100,inf=1.0D100)
+      PARAMETER (zero=1.0D-300,inf=1.0D300)
 C     ..
 C     .. Scalar Arguments ..
       DOUBLE PRECISION bound,p,q,scale,shape,x
@@ -201,7 +201,7 @@ C     ..
           status = 0
           xscale = x*scale
           CALL cumgam(xscale,shape,p,q)
-          IF (p.GT.1.5D0) status = 10
+          IF (porq.GT.1.5D0) status = 10
 
       ELSE IF ((2).EQ. (which)) THEN
           CALL gaminv(shape,xx,-1.0D0,p,q,ierr)

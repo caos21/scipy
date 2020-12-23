@@ -35,12 +35,12 @@ C                    DOUBLE PRECISION Q
 C
 C        T <--> Upper limit of integration of the t-density.
 C               Input range: ( -infinity, +infinity).
-C               Search range: [ -1E100, 1E100 ]
+C               Search range: [ -1E300, 1E300 ]
 C                    DOUBLE PRECISION T
 C
 C        DF <--> Degrees of freedom of the t-distribution.
 C                Input range: (0 , +infinity).
-C                Search range: [1e-100, 1E10]
+C                Search range: [1e-300, 1E10]
 C                    DOUBLE PRECISION DF
 C
 C     STATUS <-- 0 if calculation completed correctly
@@ -81,9 +81,9 @@ C     .. Parameters ..
       DOUBLE PRECISION atol
       PARAMETER (atol=1.0D-50)
       DOUBLE PRECISION zero,inf
-      PARAMETER (zero=1.0D-100,inf=1.0D100)
+      PARAMETER (zero=1.0D-300,inf=1.0D300)
       DOUBLE PRECISION rtinf
-      PARAMETER (rtinf=1.0D100)
+      PARAMETER (rtinf=1.0D300)
       DOUBLE PRECISION maxdf
       PARAMETER (maxdf=1.0d10)
 C     ..

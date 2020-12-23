@@ -35,12 +35,12 @@ C                    DOUBLE PRECISION Q
 C
 C        S <--> Upper limit of cumulation of the Poisson.
 C               Input range: [0, +infinity).
-C               Search range: [0,1E100]
+C               Search range: [0,1E300]
 C                    DOUBLE PRECISION S
 C
 C     XLAM <--> Mean of the Poisson distribution.
 C               Input range: [0, +infinity).
-C               Search range: [0,1E100]
+C               Search range: [0,1E300]
 C                    DOUBLE PRECISION XLAM
 C
 C     STATUS <-- 0 if calculation completed correctly
@@ -84,7 +84,7 @@ C     .. Parameters ..
       DOUBLE PRECISION atol
       PARAMETER (atol=1.0D-50)
       DOUBLE PRECISION inf
-      PARAMETER (inf=1.0D100)
+      PARAMETER (inf=1.0D300)
 C     ..
 C     .. Scalar Arguments ..
       DOUBLE PRECISION bound,p,q,s,xlam

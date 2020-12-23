@@ -43,7 +43,7 @@ C                    DOUBLE PRECISION S
 C
 C     XN  <--> The number of binomial trials.
 C              Input range: (0, +infinity).
-C              Search range: [1E-100, 1E100]
+C              Search range: [1E-300, 1E300]
 C                    DOUBLE PRECISION XN
 C
 C     PR  <--> The probability of success in each binomial trial.
@@ -96,7 +96,7 @@ C     .. Parameters ..
       DOUBLE PRECISION tol
       PARAMETER (tol=1.0D-8)
       DOUBLE PRECISION zero,inf
-      PARAMETER (zero=1.0D-100,inf=1.0D100)
+      PARAMETER (zero=1.0D-300,inf=1.0D300)
       DOUBLE PRECISION one
       PARAMETER (one=1.0D0)
 C     ..

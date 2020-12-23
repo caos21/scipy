@@ -32,16 +32,16 @@ C                    DOUBLE PRECISION Q
 C
 C        T <--> Upper limit of integration of the noncentral t-density.
 C               Input range: ( -infinity, +infinity).
-C               Search range: [ -1E100, 1E100 ]
+C               Search range: [ -1E300, 1E300 ]
 C                    DOUBLE PRECISION T
 C
 C        DF <--> Degrees of freedom of the noncentral t-distribution.
 C                Input range: (0 , +infinity).
-C                Search range: [1e-100, 1E10]
+C                Search range: [1E-300, 1E10]
 C                    DOUBLE PRECISION DF
 C
 C     PNONC <--> Noncentrality parameter of the noncentral t-distributio
-C                Input range: [-1e6, 1E6].
+C                Input range: [-1E9, 1E9].
 C
 C     STATUS <-- 0 if calculation completed correctly
 C               -I if input parameter number I is out of range
@@ -73,14 +73,14 @@ C     monotinicity of P with the other parameter.
 C
 C***********************************************************************
 C     .. Parameters ..
-      DOUBLE PRECISION tent6
-      PARAMETER (tent6=1.0D6)
+      DOUBLE PRECISION tent9
+      PARAMETER (tent9=1.0D9)
       DOUBLE PRECISION tol
       PARAMETER (tol=1.0D-8)
       DOUBLE PRECISION atol
       PARAMETER (atol=1.0D-50)
       DOUBLE PRECISION zero,one,inf
-      PARAMETER (zero=1.0D-100,one=1.0D0-1.0D-16,inf=1.0D100)
+      PARAMETER (zero=1.0D-300,one=1.0D0-1.0D-16,inf=1.0D300)
 C     ..
 C     .. Scalar Arguments ..
       DOUBLE PRECISION bound,df,p,pnonc,q,t
@@ -108,13 +108,13 @@ C     ..
       ENDIF
 
       IF (which.NE.4) THEN
-          IF (.NOT. (pnonc.GE.-tent6)) THEN
+          IF (.NOT. (pnonc.GE.-tent9)) THEN
               status = -6
-              bound = -tent6
+              bound = -tent9
               RETURN
-          ELSE IF (.NOT. (pnonc.LE.tent6)) THEN
+          ELSE IF (.NOT. (pnonc.LE.tent9)) THEN
               status = -6
-              bound = tent6
+              bound = tent9
               RETURN
           ENDIF
       ENDIF
@@ -175,7 +175,7 @@ C     ..
 
       ELSE IF ((3).EQ. (which)) THEN
           df = 5.0D0
-          CALL dstinv(zero,tent6,0.5D0,0.5D0,5.0D0,atol,tol)
+          CALL dstinv(zero,tent9,0.5D0,0.5D0,5.0D0,atol,tol)
           status = 0
           CALL dinvr(status,df,fx,qleft,qhi)
   160     IF (.NOT. (status.EQ.1)) GO TO 170
@@ -197,7 +197,7 @@ C     ..
 
       ELSE IF ((4).EQ. (which)) THEN
           pnonc = 5.0D0
-          CALL dstinv(-tent6,tent6,0.5D0,0.5D0,5.0D0,atol,tol)
+          CALL dstinv(-tent9,tent9,0.5D0,0.5D0,5.0D0,atol,tol)
           status = 0
           CALL dinvr(status,pnonc,fx,qleft,qhi)
   210     IF (.NOT. (status.EQ.1)) GO TO 220
@@ -213,7 +213,7 @@ C     ..
           GO TO 240
 
   230     status = 2
-          bound = tent6
+          bound = tent9
   240     CONTINUE
   250 END IF
 

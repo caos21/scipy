@@ -37,13 +37,13 @@ C
 C     X <--> Upper limit of integration of the non-central
 C            chi-square distribution.
 C            Input range: [0, +infinity).
-C            Search range: [0,1E100]
+C            Search range: [0,1E300]
 C                    DOUBLE PRECISION X
 C
 C     DF <--> Degrees of freedom of the
 C             chi-square distribution.
 C             Input range: (0, +infinity).
-C             Search range: [ 1E-100, 1E100]
+C             Search range: [ 1E-300, 1E300]
 C                    DOUBLE PRECISION DF
 C
 C     STATUS <-- 0 if calculation completed correctly
@@ -85,7 +85,7 @@ C     .. Parameters ..
       DOUBLE PRECISION atol
       PARAMETER (atol=1.0D-50)
       DOUBLE PRECISION zero,inf
-      PARAMETER (zero=1.0D-100,inf=1.0D100)
+      PARAMETER (zero=1.0D-300,inf=1.0D300)
 C     ..
 C     .. Scalar Arguments ..
       DOUBLE PRECISION bound,df,p,q,x

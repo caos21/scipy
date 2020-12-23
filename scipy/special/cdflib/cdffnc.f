@@ -42,18 +42,18 @@ C                    DOUBLE PRECISION F
 C
 C     DFN < --> Degrees of freedom of the numerator sum of squares.
 C               Input range: (0, +infinity).
-C               Search range: [ 1E-100, 1E100]
+C               Search range: [ 1E-300, 1E300]
 C                    DOUBLE PRECISION DFN
 C
 C     DFD < --> Degrees of freedom of the denominator sum of squares.
 C               Must be in range: (0, +infinity).
 C               Input range: (0, +infinity).
-C               Search range: [ 1E-100, 1E100]
+C               Search range: [ 1E-300, 1E300]
 C                    DOUBLE PRECISION DFD
 C
 C     PNONC <-> The non-centrality parameter
 C               Input range: [0,infinity)
-C               Search range: [0,1E4]
+C               Search range: [0,1E9]
 C                    DOUBLE PRECISION PHONC
 C
 C     STATUS <-- 0 if calculation completed correctly
@@ -91,7 +91,7 @@ C
 C     The computation time  required for this  routine is proportional
 C     to the noncentrality  parameter  (PNONC).  Very large  values of
 C     this parameter can consume immense  computer resources.  This is
-C     why the search range is bounded by 10,000.
+C     why the search range is bounded by 1e9.
 C
 C                              WARNING
 C
@@ -103,14 +103,14 @@ C     values.
 C
 C**********************************************************************
 C     .. Parameters ..
-      DOUBLE PRECISION tent4
-      PARAMETER (tent4=1.0D4)
+      DOUBLE PRECISION tent9
+      PARAMETER (tent9=1.0D9)
       DOUBLE PRECISION tol
       PARAMETER (tol=1.0D-8)
       DOUBLE PRECISION atol
       PARAMETER (atol=1.0D-50)
       DOUBLE PRECISION zero,one,inf
-      PARAMETER (zero=1.0D-100,one=1.0D0-1.0D-16,inf=1.0D100)
+      PARAMETER (zero=1.0D-300,one=1.0D0-1.0D-16,inf=1.0D300)
 C     ..
 C     .. Scalar Arguments ..
       DOUBLE PRECISION bound,dfd,dfn,f,p,phonc,q
@@ -260,7 +260,7 @@ C     ..
 
       ELSE IF ((5).EQ. (which)) THEN
           phonc = 5.0D0
-          CALL dstinv(0.0D0,tent4,0.5D0,0.5D0,5.0D0,atol,tol)
+          CALL dstinv(0.0D0,tent9,0.5D0,0.5D0,5.0D0,atol,tol)
           status = 0
           CALL dinvr(status,phonc,fx,qleft,qhi)
   310     IF (.NOT. (status.EQ.1)) GO TO 320
@@ -280,7 +280,7 @@ C     ..
           GO TO 340
 
   330     status = 2
-          bound = tent4
+          bound = tent9
   340     CONTINUE
   350 END IF
 

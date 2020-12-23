@@ -50,7 +50,7 @@ C
 C     PNONC <--> Non-centrality parameter of the non-central
 C                chi-square distribution.
 C                Input range: [0, +infinity).
-C                Search range: [0,1E4]
+C                Search range: [0,1E9]
 C                    DOUBLE PRECISION PNONC
 C
 C     STATUS <-- 0 if calculation completed correctly
